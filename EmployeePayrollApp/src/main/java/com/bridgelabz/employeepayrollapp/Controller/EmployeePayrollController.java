@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-
 /*
-* UC2-Introducing Service Layer to Employee Payroll App
+* UC3-Ability for the Service Layer to store the Employee Payroll Data
 * */
 
 @RestController
@@ -57,7 +55,7 @@ public class EmployeePayrollController {
                                                                  @RequestBody EmployeePayrollDTO empPayrollDTO)
     {
         EmployeePayrollData employeePayrollData = null;
-        employeePayrollData = employeePayrollService.updateEmployeePayrollData(empPayrollDTO);
+        employeePayrollData = employeePayrollService.updateEmployeePayrollData(empId,empPayrollDTO);
         ResponseDTO respDTO = new ResponseDTO("Updated Employee payroll Data for: ", employeePayrollData);
         return new ResponseEntity<ResponseDTO> (respDTO, HttpStatus.OK);
     }
